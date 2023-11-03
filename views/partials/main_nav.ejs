@@ -18,7 +18,7 @@
         </li>
 
         <li class="nav-item">
-        <% if (title == "About Us") { %>
+        <% if (title == "About") { %>
           <a class="nav-link active" href="/about">
         <% } else { %>
           <a class="nav-link" href="/about">
@@ -28,33 +28,23 @@
         </li>
 
         <li class="nav-item">
-        <% if (title == "Services") { %>
-          <a class="nav-link active" href="/services">
-        <% } else { %>
-          <a class="nav-link" href="/services">
-        <% } %>  
-          <i class="fa-solid fa-user-group"></i> 
-          Services</a>
-        </li>
-
-        <li class="nav-item">
         <% if (title == "Products") { %>
-          <a class="nav-link active" href="/products">
+          <a class="nav-link active" href="/projects">
         <% } else { %>
-          <a class="nav-link" href="/products">
+          <a class="nav-link" href="/projects">
         <% } %> 
           <i class="fa-solid fa-bag-shopping"></i>
-          Products</a>
+          Projects</a>
         </li>
 
         <li class="nav-item">
-        <% if (title == "Contact Us") { %>
+        <% if (title == "Contact Me") { %>
           <a class="nav-link active" href="/contact">
         <% } else { %>
           <a class="nav-link" href="/contact">
         <% } %> 
           <i class="fa-solid fa-phone"></i>
-          Contact Us</a>
+          Contact</a>
         </li>
       </ul>
     </div>

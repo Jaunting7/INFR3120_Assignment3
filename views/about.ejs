@@ -1,0 +1,26 @@
+<%- include partials/header.ejs %>
+
+<body>
+    <%- include partials/main_nav.ejs %>
+
+    <article class = "about">
+        <h1>About</h1>
+        <!--wrapper to make image and text be side-by-side-->
+        <div class = "wrapper">
+            <!--image of myself-->
+            <img src = "Asset/Images/aboutme_closeup.jpg" alt = "Image of me" class = "aboutme_closeup">
+            <p>
+            Hi, I'm Jason Kong. Currently, I'm in my second year of Networking and IT Security.
+            I created this website in a course called Web and Script Programming to help showcase my projects
+            and share a little about myself.
+            </p>
+        </div>
+        <video id="video" controls width="320" height="240" poster="Asset/Images/on_record.png" loop preload="auto">
+            <!--Two options, opera and firefox only support ogg so do both formats.-->
+            <source src="Asset/Videos/on_record.mp4" type ="video/mp4">
+        </video> 
+    </article>
+    <%- include partials/bottom_nav.ejs %>
+    <%- include partials/footer.ejs %>
+</body>
+</html>

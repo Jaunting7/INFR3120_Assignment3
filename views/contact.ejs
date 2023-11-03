@@ -1,0 +1,36 @@
+<%- include partials/header.ejs %>
+
+<body>
+    <%- include partials/main_nav.ejs %>
+
+<div class = "contact">
+    <div class = contact_header><h2>Contact Me</h2></div>
+    <!--form contains name, email, phone, comments-->
+        <form action = "mailto:jason.kong@ontariotechu.net" enctype="text/plain" method="post" name="form">
+            <p>
+                <label for="name">Full Name</label><br>
+                <input type="text" name="name" size="40" placeholder="Enter your name" required>
+            </p>
+            <p>
+                <label for="email">Email</label><br>
+                <input type="email" name="email" size="30" placeholder="Enter your email" required>
+            </p>
+            <p>
+                <label for="phone">Phone Number</label><br>
+                <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="10 digit phone number" required>
+            <p>
+                <label for="comments"> Comments </label><br>
+                <textarea name="comments" cols="60" rows ="8"></textarea>
+            </p>
+            <p>
+                <!--prefer input type submit rather than button-->
+                <input type="submit" value="Submit the form">
+            </p>
+        </form>
+</div>
+ 
+    <%- include partials/bottom_nav.ejs %>
+    <%- include partials/footer.ejs %>
+
+</body>
+</html>
