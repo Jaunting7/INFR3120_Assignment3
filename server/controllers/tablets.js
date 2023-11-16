@@ -10,7 +10,6 @@ module.exports.ReadTabletData = async(req,res,next)=>{ //< Mark function as asyn
           title: 'Tablets', 
           tabletsList: tabletsList
        });
-       // console.log(tabletsList);
     } 
     catch(err)
     {
