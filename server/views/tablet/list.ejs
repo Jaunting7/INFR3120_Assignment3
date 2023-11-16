@@ -1,0 +1,51 @@
+<%- include ../partials/index_header.ejs %>
+<body>
+    <%- include ../partials/main_nav.ejs %>
+    <!-- Create table for data with CRUD functionality -->
+        <main class="container">
+            <div class="row">
+                <div class="offset-md-1 col-md-10">
+                <h1><%= title %></h1>
+                <a href="/tabletlist/add" class="btn btn-primary"
+                role="button"><i class="fas fa-plus-circle"></i> Add Tablet
+                </a>
+            <br>
+            <table class = "table table-bordered table-striped table-hover">
+                <tr class = "d-flex">
+                    <th class = "text-center col-2">Name</th>
+                    <th class = "text-center col-2">Price</th>
+                    <th class = "text-center col-2">Pressure Sensitivity Levels</th>
+                    <th class = "text-center col-2">Size</th>
+                    <th class = "text-center col-2">Screen</th>
+                </tr>
+            <%  for(let count=0; count < tabletsList.length; count++) { %>
+                <tr class = "d-flex">
+                    <td class = "text-center col-2"><%= tabletsList[count].Name %></td>
+                    <td class = "text-center col-2"><%= tabletsList[count].Price %></td>
+                    <td class = "text-center col-2"><%= tabletsList[count].PressureSensitivityLevels %></td>
+                    <td class = "text-center col-2"><%= tabletsList[count].Size %></td>
+                    <td class = "text-center col-2"><%= tabletsList[count].Screen %></td>
+                    <td class = "text-center col-1">
+                        <a href="/tabletlist/edit/<%= tabletsList[count]._id %>"
+                        role="button"
+                        class = "btn btn-primary btn-sm">
+                        <i class = "fas fa-pencil-alt"></i> Edit
+                        </a>
+                    </td>
+                    <td class = "text-center col-1">
+                        <a href="/tabletlist/delete/<%= tabletsList[count]._id %>"
+                        role="button"
+                        class = "btn btn-danger btn-sm">
+                        <i class = "fas fa-trash-alt"></i> Delete
+                        </a>
+                    </td>
+                </tr> 
+            <% } %>
+            </table>
+            </div>
+        </div>
+        </main> 
+        <%- include ../partials/bottom_fixed_nav.ejs %>
+        <%- include ../partials/footer.ejs %>
+</body>
+</html>
