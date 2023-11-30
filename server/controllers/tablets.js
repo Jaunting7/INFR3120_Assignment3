@@ -8,7 +8,8 @@ module.exports.ReadTabletData = async(req,res,next)=>{ //< Mark function as asyn
        const tabletsList = await tablets.find(); //< Use of await keyword
        res.render('tablet/list', {
           title: 'Tablets', 
-          tabletsList: tabletsList
+          tabletsList: tabletsList,
+          displayName: req.user ? req.user.displayName:''
        });
     } 
     catch(err)
@@ -23,9 +24,9 @@ module.exports.ReadTabletData = async(req,res,next)=>{ //< Mark function as asyn
 
  module.exports.AddTablet = (req,res,next)=>{
     try{
-        res.render('tablet/add',
-        {
-            title:'Add Tablet'
+        res.render('tablet/add', {
+            title:'Add Tablet',
+            displayName: req.user ? req.user.displayName:''
         })
     }
     catch(err)
@@ -67,7 +68,8 @@ module.exports.EditTabletPage = async(req,res,next)=>{
     res.render('tablet/edit',
     {
         title:'Edit Tablet',
-        Tablet:tabletToEdit
+        Tablet:tabletToEdit,
+        displayName: req.user ? req.user.displayName:''
     })
 }
 catch(err){

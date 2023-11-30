@@ -4,15 +4,43 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+// Auth
+let session = require('express-session');
+let passport = require('passport')
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
 let app = express();
 
 let mongoose = require('mongoose');
 let DB = require('./db')
+
 // mongoose.connect('mongod://127.0.0.1:27017/test");
 mongoose.connect(DB.URI);
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection error'));
 mongoDB.once('open', ()=>{console.log("MongoDB Connected")});
+
+// Auth
+// Set-up express session (before mongo)
+app.use(session({
+  secret:"SomeSecret",
+  saveUninitialized:false,
+  resave:false,
+}));
+// initialize flash
+app.use(flash());
+// Creating user model instance
+let userModel = require('../models/user');
+let User = userModel.User;
+// serialization and deserialization of the user
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// initialize the passport
+app.use(passport.initialize());
+app.use(passport.session());
+// call the strategy
+passport.use(User.createStrategy());
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
